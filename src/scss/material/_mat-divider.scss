@@ -1,0 +1,10 @@
+@forward '../theme/';
+@use '../variables';
+
+.mat-divider {
+    --mat-divider-color: var(--md-sys-color-outline);
+
+    @media(#{variables.$tablet}) {
+        visibility: hidden;
+    }
+}

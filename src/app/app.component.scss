@@ -1,0 +1,40 @@
+@forward "../scss/theme";
+@import "../scss/variables";
+
+.main-container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas: 
+        "nav header"
+        "nav main"
+        "nav footer";
+
+    @media(#{$tablet}) {
+        grid-template-columns: 80px 1fr;
+    }
+
+    @media(#{$mobile}) {
+        grid-template-columns: 1fr;
+        grid-template-areas: "header" "main" "footer" "nav";
+    }
+        
+    .header {
+        grid-area: header;
+    }
+
+    .main  {
+        grid-area: main;
+    }
+
+    .footer {
+        grid-area: footer;
+    }
+
+    .nav {
+        grid-area: nav;
+        width: 100%;
+    }
+}

@@ -1,0 +1,40 @@
+@use '../mixins/typography';
+@forward '../theme/';
+@use '../variables';
+
+.mat-mdc-list-item {
+    --mdc-list-list-item-container-shape: 28px;
+    --mdc-list-list-item-label-text-color: var(--md-sys-color-on-surface-variant);
+    --mdc-list-list-item-hover-label-text-color: var(--md-sys-color-on-secondary-container);
+    --mdc-list-list-item-hover-state-layer-color: var(--md-sys-color-on-secondary-container);
+    --mdc-list-list-item-focus-state-layer-color: var(--md-sys-color-on-secondary-container);
+    --mdc-list-list-item-hover-state-layer-opacity: 0.08;
+    --mdc-list-list-item-selected-container-opacity: 0.1;
+    --mdc-list-list-item-one-line-container-height: 56px;
+
+    &.section__item--search {
+        --mdc-list-list-item-container-shape: 16px;
+        --mdc-list-list-item-container-color: var(--md-ref-palette-tertiary30);
+        --mdc-list-list-item-one-line-container-height: 56px;
+
+    }
+
+    @media(#{variables.$mobile}) {
+        --mdc-list-list-item-one-line-container-height: 32px;
+    }
+
+    .mat-ripple {
+        opacity: 0.1;
+    }
+}
+
+.mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text {
+    color: var(--md-sys-color-on-secondary-container);
+}
+
+.mdc-list-item {
+    &--activated {
+        color: var(--md-sys-color-on-secondary-container);
+        --mdc-list-list-item-container-color: var(--md-sys-color-secondary-container);
+    }
+}
