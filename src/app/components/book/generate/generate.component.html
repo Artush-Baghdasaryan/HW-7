@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Generate book</h2>
+<mat-dialog-content class="content">
+    <div class="content__text">
+        <label>Value</label>
+        <label>{{slider.value}}</label>
+    </div>
+    <mat-slider max="50" min="1" step="1" discrete="true" class="content__slider">
+        <input matSliderThumb [(ngModel)]="booksCount" #slider>
+    </mat-slider>
+</mat-dialog-content>
+<mat-dialog-actions class="actions">
+    <button mat-flat-button class="warn light-theme" [mat-dialog-close]="false">Cancel</button>
+    <button mat-flat-button class="secondary" [mat-dialog-close]="booksCount">Generate</button>
+</mat-dialog-actions>

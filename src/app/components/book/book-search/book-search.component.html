@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="container__content">
+        <div class="search-wrapper">
+            <form class="form" [formGroup]="searchForm">
+                <input matInput type="text" formControlName="search" (keyup)="searchContextChanges()" placeholder="Search book">
+                <div class="search-icon">
+                    <mat-icon>search</mat-icon>
+                </div>
+            </form>
+        </div>
+        <mat-card class="list" *ngIf="bookList.length && isAnySearchContent()">
+            <div mat-ripple class="list__item" mat-button *ngFor="let book of bookList"
+                [routerLink]="['/book-detail', book.id]">
+                <span class="list__item__label">{{book.name}}</span>
+                <span class="list__item__label">{{book.author}}</span>
+            </div>
+        </mat-card>
+    </div>
+
+</div>

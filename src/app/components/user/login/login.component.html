@@ -1,0 +1,25 @@
+<div class="container">
+    <mat-card class="form-wrapper">
+        <div class="title-wrapper">
+            <h2>Login</h2>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+            <div class="form-field-wrapper">
+                <mat-form-field class="form-field" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label for="password">Password</mat-label>
+                    <input matInput type="password" placeholder="" formControlName="password">
+                </mat-form-field>
+                <button type="submit" mat-flat-button [disabled]="loginForm.invalid">
+                    LOGIN
+                </button>
+            </div>
+        </form>
+        <div class="switch-button">
+            <button style="width: 80px;" mat-button routerLink="/register">Sign Up</button>
+        </div>
+    </mat-card>
+</div>

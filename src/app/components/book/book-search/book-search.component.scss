@@ -1,0 +1,100 @@
+@import "../../../../scss/theme/";
+
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 800px;
+        gap: 12px;
+
+        .search-wrapper {
+            width: 100%;
+
+            .form {
+                position: relative;
+                display: flex;
+                justify-content: center;
+
+                input {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    background-color: var(--md-sys-color-surface-container-high);
+                    color: var(--md-sys-color-on-surface-varient);
+                    height: 56px;
+                    border-radius: 28px 0 0 28px;
+                    padding-left: 24px;
+                    font-size: 16px;
+                }
+
+                input::placeholder {
+                    color: var(--md-sys-color-on-surface-varient);
+                }
+
+                .search-icon {
+                    color: var(--md-sys-color-on-surface-varient);
+                    background-color: var(--md-sys-color-surface-container-high);
+                    padding-inline: 16px;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 0 50% 50% 0;
+                }
+
+                // &__field {
+                //     width: 100%;
+
+                //     .mdc-text-field.mdc-text-field {
+                //         --mdc-outlined-text-field-container-shape: 28px !important;
+                //     }
+                // }
+            }
+        }
+
+        .list {
+            // display: flex;
+            // justify-content: center;
+            display: flex;
+            max-width: 800px;
+            padding-block: 16px;
+
+            &__item {
+
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: start;
+                padding-inline: 16px;
+                padding-block: 8px;
+                cursor: pointer;
+
+                &:hover {
+                    --hover-opacity: 0.1;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: var(--md-sys-color-on-secondary-container);
+                    transition: opacity 0.1s linear;
+                    opacity: var(--hover-opacity, 0);
+                }
+
+                &__label {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+}

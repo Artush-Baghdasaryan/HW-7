@@ -1,0 +1,31 @@
+@import "../../../scss/theme/";
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+
+        &__title, &__text {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        &__links {
+            display: flex;
+            gap: 16px;
+
+            a, .divider {
+                color: var(--md-sys-color-on-background);
+            }
+        }
+    }
+}

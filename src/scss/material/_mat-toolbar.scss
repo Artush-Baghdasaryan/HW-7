@@ -1,0 +1,12 @@
+@use '../mixins/typography';
+@forward '../theme/';
+@use '../variables';
+
+.mat-toolbar.mat-toolbar {
+    --mat-toolbar-container-background-color: var(--md-sys-color-surface-container);
+    --mat-toolbar-container-text-color: var(--md-sys-color-on-background);
+    
+    @media(#{variables.$mobile}) {
+        @include typography.body-medium;
+    }
+}

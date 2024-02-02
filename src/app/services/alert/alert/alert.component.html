@@ -1,0 +1,21 @@
+<ng-template #confirmationDialog *ngIf="confirmationInfo">
+    <h2 mat-dialog-title>{{confirmationInfo.title}}</h2>
+    <mat-dialog-content class="content">
+        <p>{{confirmationInfo.text}}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions class="actions">
+        <button mat-flat-button class="warn light-theme"
+            [mat-dialog-close]="false">{{confirmationInfo.cancelButtonText}}</button>
+        <button mat-flat-button class="secondary" [mat-dialog-close]="true">{{confirmationInfo.yesButtonText}}</button>
+    </mat-dialog-actions>
+</ng-template>
+
+<ng-template #alertDialog *ngIf="alertInfo">
+    <h2 mat-dialog-title>{{alertInfo.title}}</h2>
+    <mat-dialog-content class="content">
+        {{alertInfo.text}}
+    </mat-dialog-content>
+    <mat-dialog-actions class="actions">
+        <button mat-flat-button class="secondary" [mat-dialog-close]="true">{{alertInfo.yesButtonText}}</button>
+    </mat-dialog-actions>
+</ng-template>

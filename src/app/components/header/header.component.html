@@ -1,0 +1,35 @@
+<mat-toolbar class="header-bar">
+    <div class="logo" routerLink="/home">
+        <h1>My Book Shop</h1>
+        <p>Last Project</p>
+    </div>
+    <div class="auth-wrapper">
+        <div class="user-name" *ngIf="isAuthorized()">
+            <mat-label class="label">{{userName}}</mat-label>
+            
+            <div class="avatar">
+                <button mat-mini-fab matTooltip="Profile" [mat-menu-trigger-for]="menu">
+                    <span>A</span>
+                </button>
+                <mat-menu #menu>
+                    <button mat-menu-item>
+                        <mat-icon>visibility</mat-icon>
+                        <mat-label>View Profile</mat-label>
+                    </button>
+                    <button mat-menu-item (click)="logOut()">
+                        <mat-icon>logout</mat-icon>
+                        <mat-label>Log out</mat-label>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+        <mat-nav-list class="auth-tabs" *ngIf="!isAuthorized()">
+            <mat-list-item class="auth-tabs__item" routerLink="login" routerLinkActive="mdc-list-item--activated">
+                <mat-label class="auth-tabs__item__label">Sign In</mat-label>
+            </mat-list-item>
+            <mat-list-item class="auth-tabs__item" routerLink="register" routerLinkActive="mdc-list-item--activated">
+                <mat-label class="auth-tabs__item__label">Sign Up</mat-label>
+            </mat-list-item>
+        </mat-nav-list>
+    </div>
+</mat-toolbar>

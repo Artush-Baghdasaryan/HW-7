@@ -1,16 +1,15 @@
-<div class="main-container">
-  <header class="header">
+<div class="main-container" [class.authorized]="!authService.isAuthorized()">
+  <header class="header" *ngIf="!isLoginPageOpen()">
     <app-header></app-header>
   </header>
   <main class="main">
-    <app-main></app-main>
+    <router-outlet></router-outlet>
+    <app-alert></app-alert>
   </main>
-  <footer class="footer">
+  <footer class="footer" *ngIf="!isLoginPageOpen()">
     <app-footer></app-footer>
   </footer>
-  <nav class="nav">
+  <nav class="nav" *ngIf="authService.isAuthorized()">
     <app-nav></app-nav>
   </nav>
 </div>
-
-<router-outlet></router-outlet>

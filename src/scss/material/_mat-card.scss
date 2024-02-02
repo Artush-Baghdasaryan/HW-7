@@ -1,0 +1,11 @@
+@use '../mixins/typography';
+@forward '../theme/';
+@use '../variables';
+
+.mat-mdc-card.mat-mdc-card {
+    --mdc-elevated-card-container-shape: 12px;
+    --mdc-elevated-card-container-color: var(--md-sys-color-surface-container-low);
+    --mat-card-subtitle-text-color: var(--md-sys-color-on-surface-varient);
+}
+
+

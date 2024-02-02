@@ -2,6 +2,7 @@
 @forward '../theme/';
 @use '../variables';
 
+
 .mat-mdc-list-item {
     --mdc-list-list-item-container-shape: 28px;
     --mdc-list-list-item-label-text-color: var(--md-sys-color-on-surface-variant);
@@ -12,11 +13,14 @@
     --mdc-list-list-item-selected-container-opacity: 0.1;
     --mdc-list-list-item-one-line-container-height: 56px;
 
-    &.section__item--search {
-        --mdc-list-list-item-container-shape: 16px;
+    &.navigation__item--search {
+        --mdc-list-list-item-container-shape: 28px;
         --mdc-list-list-item-container-color: var(--md-ref-palette-tertiary30);
         --mdc-list-list-item-one-line-container-height: 56px;
 
+        @media(#{variables.$tablet}) {
+            --mdc-list-list-item-container-shape: 16px;
+        }
     }
 
     @media(#{variables.$mobile}) {

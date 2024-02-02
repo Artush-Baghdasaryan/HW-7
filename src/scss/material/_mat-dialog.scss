@@ -1,0 +1,11 @@
+@use '../mixins/typography';
+@forward '../theme/';
+@use '../variables';
+
+.mat-mdc-dialog-container.mat-mdc-dialog-container {
+    --mdc-dialog-container-shape: 28px;
+    --mdc-dialog-container-color: var(--md-sys-color-surface-container-high);
+    --mdc-dialog-subhead-color: var(--md-sys-color-on-surface);
+    --mdc-dialog-supporting-text-color: var(--md-sys-color-on-surface);
+
+}

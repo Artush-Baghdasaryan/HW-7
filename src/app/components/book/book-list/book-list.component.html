@@ -1,0 +1,78 @@
+<div class="layout">
+    <div class="panel">
+        <mat-action-list class="panel__content">
+            <button mat-flat-button class="panel__content__button secondary" (click)="onAddBook()">
+                <mat-icon>add</mat-icon>
+                Add book
+            </button>
+            <button mat-flat-button class="panel__content__button secondary" (click)="onGenerateBooks()">
+                <mat-icon>add</mat-icon>
+                Generate books
+            </button>
+            <button mat-flat-button class="panel__content__button warn" matBadgeColor="warn"
+                [matBadge]="booksList.length" [matBadgeHidden]="booksList.length === 0"
+                [disabled]="booksList.length === 0" (click)="onDeleteAll()">
+                <mat-icon>delete</mat-icon>
+                Delete all books
+            </button>
+        </mat-action-list>
+    </div>
+    <div class="list">
+        <mat-card class="list__item" *ngFor="let book of booksList" [id]="book.id" (mouseenter)="onMouseEnter($event)"
+            (mouseleave)="onMouseLeave($event)">
+            <img mat-card-image src="../../../../assets/images/book.jpg" alt="Default book image"
+                class="list__item__image">
+            <div class="list__item__content">
+                <mat-card-title-group>
+                    <mat-card-title class="list__item__content__text">{{book.name}}</mat-card-title>
+                    <mat-card-subtitle class="list__item__content__text list__item__content__text--author">Author: {{book.author}}</mat-card-subtitle>
+                </mat-card-title-group>
+                <div class="list__item__content__button">
+                    <button mat-icon-button [mat-menu-trigger-for]="menu">
+                        <mat-icon style="color: white;">
+                            more_vert
+                        </mat-icon>
+                    </button>
+                    <mat-menu #menu>
+                        <button mat-menu-item (click)="onBookEdit(book)">
+                            <mat-icon>edit</mat-icon>
+                            <mat-label>Edit</mat-label>
+                        </button>
+                        <button mat-menu-item [routerLink]="['/book-detail', book.id]">
+                            <mat-icon>visibility</mat-icon>
+                            <mat-label>View</mat-label>
+                        </button>
+                        <button mat-menu-item (click)="onBookDelete(book)">
+                            <mat-icon>delete</mat-icon>
+                            <mat-label>Delete</mat-label>
+                        </button>
+                    </mat-menu>
+                </div>
+            </div>
+            <div class="hover-layer" [@appears]="isBookHovered(book)">
+                <mat-action-list class="hover-layer__content">
+                    <div class="hover-layer__content__item">
+                        <button mat-flat-button class="hover-layer__content__item__button secondary"
+                            (click)="onBookEdit(book)">
+                            <mat-icon>edit</mat-icon>
+                            Edit
+                        </button>
+                    </div>
+                    <div class="hover-layer__content__item">
+                        <button mat-flat-button [routerLink]="['/book-detail', book.id]" class="hover-layer__content__item__button secondary">
+                            <mat-icon>visibility</mat-icon>
+                            View
+                        </button>
+                    </div>
+                    <div class="hover-layer__content__item">
+                        <button mat-flat-button class="hover-layer__content__item__button secondary"
+                            (click)="onBookDelete(book)">
+                            <mat-icon>delete</mat-icon>
+                            Delete
+                        </button>
+                    </div>
+                </mat-action-list>
+            </div>
+        </mat-card>
+    </div>
+</div>

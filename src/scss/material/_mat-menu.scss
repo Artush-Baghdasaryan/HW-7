@@ -1,0 +1,13 @@
+@use '../mixins/typography';
+@forward '../theme/';
+@use '../variables';
+
+.mat-mdc-menu-panel.mat-mdc-menu-panel {
+    --mat-menu-container-color: var(--md-sys-color-surface-container);
+    --mat-menu-item-label-text-color: var(--md-sys-color-on-secondary-container);
+    --mat-menu-item-icon-color: var(--md-sys-color-on-secondary-container);
+
+    &.warn .mat-mdc-menu-item {
+        color: var(--md-sys-color-error);
+    }
+}

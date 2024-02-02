@@ -1,0 +1,116 @@
+@import "../../../../scss/variables/";
+@import "../../../../scss/theme/";
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding-inline: 12px;
+    justify-content: center;
+
+    @media(#{$mobile}) {
+        padding: 0;
+    }
+
+    .panel {
+        width: 100%;
+
+        &__content {
+            display: flex;
+            gap: 8px;
+            justify-content: start;
+        }
+    }
+
+    .list {
+        $minimum-card-width: 200px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax($minimum-card-width, 1fr));
+        justify-content: center;
+        width: 100%;
+        gap: 8px;
+
+        @media(#{$tablet}) {
+            $minimum-card-width: 100px;
+        }
+
+        @media(#{$mobile}) {
+            $minimum-card-width: 100px;
+            grid-template-columns: repeat(2, minmax($minimum-card-width, 1fr));
+        }
+
+        &__item {
+            display: grid;
+            position: relative;
+            grid-template-rows: 300px 80px;
+
+            &__content {
+                display: flex;
+                padding: 8px;
+
+                &__text {
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+
+                    &--author {
+                        -webkit-line-clamp: 1;
+                    }
+                }
+
+                &__button {
+                    position: absolute;
+                    top: 2%;
+                    right: 2%;
+                    --mat-icon-color: var(--md-sys-color-on-background-light) !important;
+
+                    @media(#{$desktop}) {
+                        display: none;
+                    }
+                }
+
+                @media(#{$mobile}) {
+                    font-size: 13px;
+                }
+            }
+
+            &__image {
+                display: block;
+                border-radius: 12px;
+                object-fit: fill;
+                width: 100%;
+                height: 100%;
+            }
+
+            .hover-layer {
+                background-color: var(--md-red-palette-tertiary30-low);
+                position: absolute;
+                display: none;
+                border-radius: 12px;
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+
+
+                @media(#{$desktop}) {
+                    &.animating {
+                        display: flex;
+                    }
+                }
+                
+
+
+                &__content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 60%;
+                    gap: 12px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<div class="navigation-container">
+    <mat-nav-list role="navigation" class="navigation">
+        <mat-list-item class="navigation__item navigation__item--search dark-theme" routerLink="/search"
+            routerLinkActive="mdc-list-item--activated">
+            <div class="navigation__item__content">
+                <div class="navigation__item__content__icon">
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+                <div class="navigation__item__content__info">
+                    <span>Search book</span>
+                </div>
+            </div>
+        </mat-list-item>
+        <mat-divider class="divider"></mat-divider>
+
+        <mat-list-item class="navigation__item navigation__item--home" routerLink="home"
+            routerLinkActive="mdc-list-item--activated">
+            <div class="navigation__item__content">
+                <div matListItemIcon class="navigation__item__content__icon">
+                    <span class="material-symbols-outlined">home</span>
+                </div>
+                <div class="navigation__item__content__info">
+                    <span>Home</span>
+                </div>
+            </div>
+        </mat-list-item>
+        <mat-list-item class="navigation__item" routerLink="books" routerLinkActive="mdc-list-item--activated">
+            <div class="navigation__item__content">
+                <div matListItemIcon class="navigation__item__content__icon">
+                    <span class="material-symbols-outlined">menu_book</span>
+                </div>
+                <div class="navigation__item__content__info">
+                    <span>Books</span>
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-nav-list>
+</div>

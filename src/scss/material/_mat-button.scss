@@ -1,0 +1,59 @@
+@use '../mixins/typography';
+@forward '../theme/';
+@use '../variables';
+
+.mdc-button.mdc-button {
+    --mdc-filled-button-container-color: var(--md-sys-color-surface-variant);
+    --mdc-filled-button-label-text-color: var(--md-sys-color-on-surface-variant);
+    --mdc-filled-button-container-height: 40px;
+    --mdc-filled-button-container-shape: 20px;
+    --mat-filled-button-state-layer-color: var(--md-sys-color-on-primary);
+    --mat-filled-button-hover-state-layer-opacity: 0.08;
+    --mat-filled-button-ripple-color: var(--md-sys-color-on-primary);
+    --mdc-filled-button-disabled-container-color: var(--md-sys-color-on-surface);
+    --mdc-filled-button-disabled-label-text-color: var(--md-sys-color-on-surface);
+    --mdc-text-button-label-text-color: var(--md-sys-color-on-surface-variant);
+
+    &.warn {
+        --mdc-filled-button-container-color: var(--md-sys-color-error-light);
+        --mdc-filled-button-label-text-color: var(--md-sys-color-on-error-light);
+    }
+
+    &.secondary {
+        --mdc-filled-button-container-color: var(--md-sys-color-secondary-container);
+        --mdc-filled-button-label-text-color: var(--md-sys-color-on-secondary-container);
+    }
+
+    &.purple {
+        --mdc-filled-button-container-color: var(--md-ref-palette-tertiary30);
+        --mdc-filled-button-label-text-color: var(--md-sys-color-on-secondary-container);
+    }
+
+    .mdc-button__label {
+        @include typography.label-large;
+
+    }
+
+    .mat-ripple {
+        opacity: 0.1;
+    }
+
+    &:not(.primary) {
+        @media(#{variables.$mobile}) {
+            .mdc-button__label {
+                @include typography.label-small;
+
+            }
+        }
+    }
+}
+
+.mat-mdc-unelevated-button[disabled][disabled] {
+    --mdc-filled-button-disabled-container-color: var(--md-sys-color-on-surface);
+    --mdc-filled-button-disabled-label-text-color: var(--md-sys-color-surface);
+    opacity: 0.12;
+}
+
+.mat-mdc-button:hover .mat-mdc-button-persistent-ripple::before {
+    opacity: 0.08;
+}
